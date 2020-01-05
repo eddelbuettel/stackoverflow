@@ -1,0 +1,86 @@
+\documentclass[letterpaper,12pt,twoside,]{pinp}
+
+%% Some pieces required from the pandoc template
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% Use the lineno option to display guide line numbers if required.
+% Note that the use of elements such as single-column equations
+% may affect the guide line number alignment.
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% pinp change: the geometry package layout settings need to be set here, not in pinp.cls
+\geometry{layoutsize={0.95588\paperwidth,0.98864\paperheight},%
+  layouthoffset=0.02206\paperwidth, layoutvoffset=0.00568\paperheight}
+
+\definecolor{pinpblue}{HTML}{185FAF}  % imagecolorpicker on blue for new R logo
+\definecolor{pnasbluetext}{RGB}{101,0,0} %
+
+
+
+\title{Example}
+
+\author[a]{Dirk Eddelbuettel}
+
+  \affil[a]{Planet Earth}
+
+\setcounter{secnumdepth}{0}
+
+% Please give the surname of the lead author for the running footer
+\leadauthor{}
+
+% Keywords are not mandatory, but authors are strongly encouraged to provide them. If provided, please include two to five keywords, separated by the pipe symbol, e.g:
+ 
+
+\begin{abstract}
+
+\end{abstract}
+
+\dates{This version was compiled on \today} 
+
+% initially we use doi so keep for backwards compatibility
+% new name is doi_footer
+
+
+\begin{document}
+
+% Optional adjustment to line up main text (after abstract) of first page with line numbers, when using both lineno and twocolumn options.
+% You should only change this length when you've finalised the article contents.
+\verticaladjustment{-2pt}
+
+\maketitle
+\thispagestyle{firststyle}
+\ifthenelse{\boolean{shortarticle}}{\ifthenelse{\boolean{singlecolumn}}{\abscontentformatted}{\abscontent}}{}
+
+% If your first paragraph (i.e. with the \dropcap) contains a list environment (quote, quotation, theorem, definition, enumerate, itemize...), the line after the list may have some extra indentation. If this is the case, add \parshape=0 to the end of the list environment.
+
+
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
+
+Two quick examples using natbib
+
+\begin{itemize}
+\tightlist
+\item
+  citet: \citet{schwarz1978estimating}
+\item
+  citep: \citep{schwarz1978estimating}
+\end{itemize}
+
+For the rest, see the natbib documentation, either at source or
+contributed such as \url{https://gking.harvard.edu/files/natnotes2.pdf}.
+
+%\showmatmethods
+
+\pnasbreak 
+
+\bibliography{ref}
+\bibliographystyle{jss}
+
+
+
+\end{document}
+

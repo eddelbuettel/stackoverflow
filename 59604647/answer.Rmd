@@ -1,0 +1,26 @@
+---
+title: Example
+
+author:
+  - name: Dirk Eddelbuettel
+    affiliation: a
+address:
+  - code: a
+    address: Planet Earth
+
+papersize: letter
+fontsize: 12pt
+one_column: true
+bibliography: ref
+output: pinp::pinp
+---
+
+# Introduction 
+
+Two quick examples using natbib
+
+- citet: \citet{schwarz1978estimating}
+- citep: \citep{schwarz1978estimating}
+
+For the rest, see the natbib documentation, either at source or contributed
+such as https://gking.harvard.edu/files/natnotes2.pdf.
