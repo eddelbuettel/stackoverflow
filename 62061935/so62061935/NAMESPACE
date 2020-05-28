@@ -1,0 +1,2 @@
+useDynLib(so62061935, .registration=TRUE)
+importFrom(Rcpp, evalCpp)
