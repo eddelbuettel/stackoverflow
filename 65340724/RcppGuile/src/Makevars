@@ -1,0 +1,2 @@
+PKG_CXXFLAGS = -I"/usr/include/guile/3.0"
+PKG_LIBS = -ldl -lgmpxx -lgmp -lmpfr -lmpc -lguile-3.0 -lgc
