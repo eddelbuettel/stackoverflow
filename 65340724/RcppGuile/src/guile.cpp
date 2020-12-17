@@ -1,3 +1,5 @@
+// cf https://gist.github.com/ncweinhold/9724254 as well
+
 #include <Rcpp.h>
 #include <stdio.h>
 #include <libguile.h>
@@ -11,11 +13,11 @@ int test_guile(std::string file) {
 
     scm_c_primitive_load(file.c_str());
 
-    //func = scm_variable_ref(scm_c_lookup("simple-func"));
-    //func2 = scm_variable_ref(scm_c_lookup("quick-test"));
+    func = scm_variable_ref(scm_c_lookup("simple-func"));
+    func2 = scm_variable_ref(scm_c_lookup("quick-test"));
 
-    //scm_call_0(func);
-    //scm_call_0(func2);
+    scm_call_0(func);
+    scm_call_0(func2);
 
     return 0;
 }
