@@ -16,6 +16,17 @@ Rcpp::cppFunction('IntegerVector tabulate_rcpp(const IntegerVector& x, const uns
     return counts;
 }')
 
+Rcpp::cppFunction('std::vector<int32_t> tabulate_rcpp_omp(const IntegerVector& x, const int max) {
+    std::vector<int32_t> counts(max);
+    #pragma omp parallel for shared(counts)
+    for (auto& now : x) {
+        if (now > 0 && now <= max)
+            counts[now - 1]++;
+    }
+    return counts;
+}', plugins="openmp")
+
+
 Rcpp::cppFunction('IntegerVector table_rcpp(const IntegerVector& x) { return table(x); }')
 })
 
@@ -26,6 +37,7 @@ df <- data.frame(X1 = a)
 
 
 b1 <- microbenchmark(tabulate_rcpp = tabulate_rcpp(df$X1, max(df$X1)),
+                     tabulate_rcpp_omp = tabulate_rcpp_omp(df$X1, max(df$X1)),
                      table_rcpp = table_rcpp(df$X1),
                      base_table = base::table(factor(df$X1, 1:max(df$X1))),
                      stats_aggregate = stats::aggregate(. ~ X1, cbind(df, n = 1), sum),
