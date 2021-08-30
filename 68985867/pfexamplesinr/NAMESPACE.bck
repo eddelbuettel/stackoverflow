@@ -1,0 +1,3 @@
+useDynLib(pfexamplesinr)
+import(RcppEigen)
+importFrom(Rcpp, evalCpp)
