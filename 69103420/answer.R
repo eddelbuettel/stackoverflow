@@ -1,5 +1,6 @@
 
-data <- read.csv(text="StartTime,EndTime
+library(data.table)
+data <- fread(text="StartTime,EndTime
 2019-05-06 08:34:15,2019-05-06 08:48:30
 2019-05-06 10:07:18,2019-05-06 10:21:34
 2019-05-06 15:13:10,2019-05-06 15:27:26
@@ -12,8 +13,6 @@ data <- read.csv(text="StartTime,EndTime
 2019-05-06 23:26:59,2019-05-07 00:03:46
 2019-05-07 00:36:43,2019-05-07 00:53:44")
 
-data$StartTime     <- as.POSIXct(data$StartTime)
-data$EndTime       <- as.POSIXct(data$EndTime)
-
-data$IdlingTime    <- data$EndTime - data$StartTime
-data$IdlingTimeMin <- as.numeric(data$EndTime - data$StartTime)
+data[, minElapsed := as.numeric(EndTime - StartTime)]
+data[, idleMin := as.numeric(StartTime - shift(EndTime))]
+data
