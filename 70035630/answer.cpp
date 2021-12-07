@@ -3,6 +3,7 @@
 
 // [[Rcpp::export]]
 int bar(Rcpp::List test){
+    SEXP df2 = test["df"];
     Rcpp::DataFrame df(test["df"]);
     Rcpp::IntegerVector ivec = df["A"];
     return Rcpp::sum(ivec);
