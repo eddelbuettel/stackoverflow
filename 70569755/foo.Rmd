@@ -1,0 +1,14 @@
+---
+title: Just a test
+author: Me
+date: 2022-01-03
+output: pdf_document
+---
+
+# Some header
+Some text.
+
+\newpage
+
+## Some other header
+More text.
