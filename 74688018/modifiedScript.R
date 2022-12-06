@@ -26,5 +26,5 @@ mat <- matrix(sample(1:10, 100, replace=TRUE), 10, 10)
 ## }
 
 rbenchmark::benchmark(inPkg = examplePackage::example_cpp(mat, 10),
-                      outsidePkg = exampleOutside(mat, 10),
-                      replications = 10, relative = TRUE)[,1:4]
+                      outsidePkg = exampleOutside(mat, 1e4),
+                      replications = 1e3)[,1:4]

@@ -22,6 +22,17 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// nontrivial
+double nontrivial(int iters);
+RcppExport SEXP _examplePackage_nontrivial(SEXP itersSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< int >::type iters(itersSEXP);
+    rcpp_result_gen = Rcpp::wrap(nontrivial(iters));
+    return rcpp_result_gen;
+END_RCPP
+}
 // rcpp_hello_world
 List rcpp_hello_world();
 RcppExport SEXP _examplePackage_rcpp_hello_world() {
@@ -35,6 +46,7 @@ END_RCPP
 
 static const R_CallMethodDef CallEntries[] = {
     {"_examplePackage_example_cpp", (DL_FUNC) &_examplePackage_example_cpp, 2},
+    {"_examplePackage_nontrivial", (DL_FUNC) &_examplePackage_nontrivial, 1},
     {"_examplePackage_rcpp_hello_world", (DL_FUNC) &_examplePackage_rcpp_hello_world, 0},
     {NULL, NULL, 0}
 };

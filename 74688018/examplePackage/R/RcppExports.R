@@ -5,6 +5,10 @@ example_cpp <- function(mat, iters) {
     .Call(`_examplePackage_example_cpp`, mat, iters)
 }
 
+nontrivial <- function(iters) {
+    .Call(`_examplePackage_nontrivial`, iters)
+}
+
 rcpp_hello_world <- function() {
     .Call(`_examplePackage_rcpp_hello_world`)
 }
