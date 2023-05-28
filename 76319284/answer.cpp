@@ -2,14 +2,16 @@
 #include <Rcpp/Rcpp>
 #include <mlpack.h>
 
-// Two include directories adjusted for my use of mlpack 3.4.2 on Ubuntu
+// Adjusted for mlpack 4.0.1
 #include <mlpack/core.hpp>
-#include <mlpack/methods/kmeans/kmeans.hpp>
+#include <mlpack/methods/kmeans.hpp>
 #include <mlpack/methods/kmeans/random_partition.hpp>
 #include <mlpack/methods/neighbor_search/neighbor_search.hpp>
 
 // [[Rcpp::depends(RcppArmadillo)]]
+// [[Rcpp::depends(RcppEnsmallen)]]
 // [[Rcpp::depends(mlpack)]]
+// [[Rcpp::plugins(cpp14)]]
 
 // This is 'borrowed' from mlpack's own src/mlpack/tests/kmeans_test.cpp
 // and src/mlpack/tests/kmeans_test.cpp. We borrow the data set, and the
@@ -52,7 +54,7 @@ arma::mat kMeansData("  0.0   0.0;" // Class 1.
 // [[Rcpp::export]]
 arma::Row<size_t> kmeansDemo() {
 
-    mlpack::kmeans::KMeans<mlpack::metric::EuclideanDistance, mlpack::kmeans::RandomPartition> kmeans;
+    mlpack::KMeans<mlpack::EuclideanDistance, mlpack::RandomPartition> kmeans;
 
     arma::Row<size_t> assignments;
     kmeans.Cluster((arma::mat) trans(kMeansData), 3, assignments);
