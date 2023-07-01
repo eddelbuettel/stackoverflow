@@ -1,0 +1,14 @@
+Package: testPkg
+Type: Package
+Title: Concise Summary of What the Package Does
+Version: 1.0
+Date: 2023-06-29
+Author: Dirk Eddelbuettel
+Maintainer: Dirk Eddelbuettel <edd@debian.org>
+Description: More about what it does (maybe more than one line).
+License: GPL (>= 2)
+Suggests: tinytest
+Encoding: UTF-8
+RoxygenNote: 7.2.3
+Imports: Rcpp (>= 1.0.10.5)
+LinkingTo: Rcpp, RcppEigen
