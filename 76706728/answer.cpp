@@ -13,7 +13,7 @@ bool conv1(Rcpp::NumericVector X) {
 bool conv2(Rcpp::NumericVector X) {
     const int n = 4;
     if (X.size() != n) Rcpp::stop("Wrong size");
-    Eigen::Matrix<double,4,1> m;
+    Eigen::Matrix<double,n,1> m;
     std::memcpy(&m[0,0], &X[0], n*sizeof(double));
     Rcpp::Rcout << m << std::endl;
     return true;
