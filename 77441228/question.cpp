@@ -19,6 +19,7 @@ List test_bug(int N) {
 
 /*** R
 for (k in 1:100) {
-    test <- test_bug(100000)
+    if (k %% 10 == 0) print(k)
+    test <- test_bug(1000000)
 }
 */
